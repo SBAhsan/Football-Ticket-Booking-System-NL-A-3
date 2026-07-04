@@ -72,3 +72,7 @@ where payment_status is null;
 select booking_id, full_name, fixture, total_cost from bookings as b
 inner join users as u on u.user_id = b.user_id
 inner join matches as m on m.match_id = b.match_id;
+
+-- query 5
+select user_id, full_name, booking_id from users
+left join bookings using(user_id);
