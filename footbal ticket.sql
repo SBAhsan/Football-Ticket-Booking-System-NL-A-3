@@ -1,4 +1,5 @@
 -- tables creation
+
 create table users (
     user_id serial primary key,
     full_name varchar(100) not null,
@@ -28,6 +29,7 @@ create table bookings (
 
 
 -- data insertion
+
 insert into users (user_id, full_name, email, role, phone_number) values
 (1, 'Tanvir Rahman', 'tanvir@mail.com', 'Football Fan', '+8801711111111'),
 (2, 'Asif Haque', 'asif@mail.com', 'Football Fan', '+8801722222222'),
@@ -50,3 +52,10 @@ insert into bookings (booking_id, user_id, match_id, seat_number, payment_status
 (504, 2, 101, NULL, NULL, 150.00),
 (505, 3, 102, 'C-20', 'Pending', 120.00);
 
+
+
+-- queries
+
+-- query 1
+select match_id, fixture, base_ticket_price from matches
+where tournament_category = 'Champions League' and match_status = 'Available';
