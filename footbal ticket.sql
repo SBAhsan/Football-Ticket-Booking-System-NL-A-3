@@ -67,3 +67,8 @@ where full_name ilike 'Tanvir%' or full_name ilike '%Haque';
 -- query 3
 select booking_id, user_id, match_id, coalesce(payment_status, 'Action Required') as systematic_status from bookings
 where payment_status is null;
+
+-- query 4
+select booking_id, full_name, fixture, total_cost from bookings as b
+inner join users as u on u.user_id = b.user_id
+inner join matches as m on m.match_id = b.match_id;
